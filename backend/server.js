@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -13,12 +12,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use("/api/users", require("./routes/userRoutes"));
-
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-app.get(/(.*)/, (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-});
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log("Connected to MongoDB"))
