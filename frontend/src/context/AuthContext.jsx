@@ -49,12 +49,18 @@ export const AuthProvider = ({ children }) => {
         setUser(res.data);
     };
 
+    const updateProfile = async (profileData) => {
+        const res = await axios.put(`${API_URL}/profile`, profileData);
+        setUser(res.data);
+        return res.data;
+    };
+
     const logout = () => {
         setToken(null);
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, loading, register, login, logout }}>
+        <AuthContext.Provider value={{ user, token, loading, register, login, logout, updateProfile }}>
             {children}
         </AuthContext.Provider>
     );
