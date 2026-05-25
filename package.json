@@ -8,8 +8,7 @@
     "install-frontend": "npm install --prefix frontend",
     "postinstall": "npm run install-backend && npm run install-frontend",
     "build": "npm run build --prefix frontend",
-    "start": "node backend/server.js",
-    "preview": "vite preview"
+    "start": "node backend/server.js"
   },
   "engines": {
     "node": ">=18"
